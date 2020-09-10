@@ -1,0 +1,30 @@
+﻿@page
+@model ListRolesModel
+@{
+    ViewData["Title"] = "All Roles";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>All Roles</h1>
+
+<a class="btn btn-primary mb-3" style="width:auto" asp-page="/Administration/CreateRole">Add new role</a>
+
+@foreach (var role in Model.roles)
+{
+    <div class="card mb-3">
+        <div class="card-header">
+            Role Id : @role.Id
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">@role.Name</h5>
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-primary" asp-page="/Administration/EditRole" asp-route-id="@role.Id">Edit</a>
+            <a href="#" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+
+}
+
+
+

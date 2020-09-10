@@ -1,0 +1,44 @@
+﻿@page
+@model Pages.IndexModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Hi Admin</h1>
+<h4>Here you can manage your users</h4>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Username
+            </th>
+            <th></th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.users)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Role)*@
+                </td>
+                <td>
+                    @*<a asp-page="./Details" asp-route-id="@item.Id">Details</a> |*@
+                    <a asp-page="/UserManagement/Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
